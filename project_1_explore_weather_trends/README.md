@@ -40,7 +40,7 @@ Exploration:
  
 * Furthermore, the global average temperature differences has incrementally increased 0.01 degrees (°C) every 10 years during the aformentioned time frame.  On the other hand, locally Dallas, TX average temperature differences have increased 0.02 degrees (°C) every 10 years. 
 
-* The overall trending based on the data and charts show the world is getting hotter showing this trend been consistent over the last few centuries.
+* The overall trending based on the data and charts show the world is getting hotter showing this trend has been consistent over the last few centuries.
 
 
 ## Authors
