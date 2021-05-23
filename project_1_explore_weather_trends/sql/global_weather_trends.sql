@@ -1,0 +1,1 @@
+select avg_temp, year from global_data
