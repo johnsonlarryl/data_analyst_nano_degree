@@ -73,7 +73,7 @@ def plot_weather_trends(filtered_global_weather: pd.DataFrame, filtered_local_we
     plt.show()
 
 
-def print_weather_trends(global_weather, local_weather) -> None:
+def print_weather_trends(global_weather: pd.DataFrame, local_weather: pd.DataFrame) -> None:
     """
      Prints weather trends locally and globally in text form.
 
