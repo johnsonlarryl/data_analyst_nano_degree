@@ -46,7 +46,11 @@ def get_aggregate_temperatures(weather: pd.Series) -> Tuple[float, float]:
     return round(avg_temp, 2), round(avg_temp_diff, 2)
 
 
-def plot_weather_trends(filtered_global_weather: pd.DataFrame, filtered_local_weather: pd.DataFrame, local_city_name: str, rolling_average: int) -> None:
+def plot_weather_trends(filtered_global_weather: pd.DataFrame,
+                        filtered_local_weather: pd.DataFrame,
+                        local_city_name: str,
+                        rolling_average: int,
+                        output: str) -> None:
     """
      Plots the weather trends locally and globally on a line plot chart or graph.
 
@@ -70,7 +74,7 @@ def plot_weather_trends(filtered_global_weather: pd.DataFrame, filtered_local_we
     plt.plot(filtered_global_weather["year"], filtered_global_weather["avg_temp"].rolling(rolling_average).mean(), label="Global")
     plt.plot(filtered_local_weather["year"], filtered_local_weather["avg_temp"].rolling(rolling_average).mean(), label=local_city_name)
     plt.legend()
-    plt.savefig('./report/exploration_of_weather_trends.png')
+    plt.savefig(output)
     plt.show()
 
 
@@ -97,7 +101,8 @@ def print_weather_trends(global_weather: pd.DataFrame, local_weather: pd.DataFra
 def main(global_weather_file: str,
          local_weather_file: str,
          local_city_name: str,
-         rolling_average: str) -> None:
+         rolling_average: str,
+         output: str) -> None:
     """
     Driver or main function that executes program with its associated command line arguments.
 
@@ -119,7 +124,7 @@ def main(global_weather_file: str,
 
     print_weather_trends(filtered_global_weather, filtered_local_weather)
 
-    plot_weather_trends(filtered_global_weather, filtered_local_weather, local_city_name, rolling_average)
+    plot_weather_trends(filtered_global_weather, filtered_local_weather, local_city_name, rolling_average, output)
 
 
 if __name__ == "__main__":
@@ -129,14 +134,17 @@ if __name__ == "__main__":
     parser.add_argument("--local_weather", help="Fully qualified file location of local weather trends", required=True)
     parser.add_argument("--local_city", help="Local city name for local weather", required=True)
     parser.add_argument("--rolling_average", help="Number of years for rolling average", required=True, type=int)
+    parser.add_argument("--output", help="Location of file to output", required=True)
+
 
     args = parser.parse_args()
     global_weather_file = args.global_weather
     local_weather_file = args.local_weather
     local_city_name = args.local_city
     rolling_average = args.rolling_average
+    output = args.output
 
-    main(global_weather_file, local_weather_file, local_city_name, rolling_average)
+    main(global_weather_file, local_weather_file, local_city_name, rolling_average, output)
 
 
 
