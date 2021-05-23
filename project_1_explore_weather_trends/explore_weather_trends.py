@@ -70,6 +70,7 @@ def plot_weather_trends(filtered_global_weather: pd.DataFrame, filtered_local_we
     plt.plot(filtered_global_weather["year"], filtered_global_weather["avg_temp"].rolling(rolling_average).mean(), label="Global")
     plt.plot(filtered_local_weather["year"], filtered_local_weather["avg_temp"].rolling(rolling_average).mean(), label=local_city_name)
     plt.legend()
+    plt.savefig('./report/exploration_of_weather_trends.png')
     plt.show()
 
 
