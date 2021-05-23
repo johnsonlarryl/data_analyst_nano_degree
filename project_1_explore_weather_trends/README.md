@@ -34,7 +34,7 @@ The following observations show how the data in Figure 1 describes the differenc
 
 Exploration:
 
-* The weather in Dallas, TX is hotter on average than the global average? Even though global weather trends have been measured since 1750 and Dallas weather trends since 1820, the differences have been consistent over time.
+* The weather in Dallas, TX is hotter on average than the global average. Even though global weather trends have been measured since 1750 and Dallas weather trends since 1820, the differences have been consistent over time.
 
 * The global average temperature between 1820 and 2013 was 8.47 degrees (°C).  However, the local Dallas, TX average temperature between 1820 and 2013 was 18.07 degrees (°C).  As a result, Dallas, TX is approximately 9.6 degrees (°C) warmer on average than the rest of the world.  
  
