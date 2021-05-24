@@ -27,8 +27,33 @@ pandoc README.md -s -o /tmp/exploration_of_weather_trends.pdf
 
 ```
 
-### Observations
-The following observations show how the data in Figure 1 describes the differences in weather trends globally and locally in Dallas, TX (Figure 1)
+### Data Collection
+Data was collected from thee database to produce two different datasets (ie. local and global weather).
+
+Global Weather Trend Data:
+```sql
+select avg_temp, year from global_data
+```
+
+Local Dallas, TX Weather Trend Data:
+```sql
+select cd.city, cd.country, cd.avg_temp, cd.year
+from city_data as cd
+join city_list as cl on cl.city = cd.city
+where cl.city = 'Dallas' and cl.country = 'United States'
+```
+
+### Data Manipulation
+Python was used to manipulate the data.  Utilizing Python modules such as pandas and numpy were used to manipulate the data to get it in the proper format for presenting the data.  Below is a snippet how the rolling averages were produced.
+
+```python
+rolling_average = 10
+weather = pd.read_csv(weather_file)
+weather["avg_temp"].rolling(rolling_average).mean()
+```
+
+### Data Observations/Visualization
+The following observations show how the data in Figure 1 describes the differences in weather trends globally and locally in Dallas, TX (Figure 1).  Python's matplotlib library was used to visualize the results.
 
 ![Figure 1 - Explorationi of Weather Trends](./report/exploration_of_weather_trends.png)
 
